@@ -1,4 +1,4 @@
-package com.dmb.contributorslist
+package com.dmb.contributorslist.service.model
 
 data class User(
     val login: String,

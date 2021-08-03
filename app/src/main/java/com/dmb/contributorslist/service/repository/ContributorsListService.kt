@@ -1,7 +1,6 @@
-package com.dmb.contributorslist
+package com.dmb.contributorslist.service.repository
 
-import com.dmb.contributorslist.Project
-
+import com.dmb.contributorslist.service.model.Project
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

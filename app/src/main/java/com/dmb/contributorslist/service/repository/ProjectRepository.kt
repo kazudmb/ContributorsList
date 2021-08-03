@@ -1,5 +1,7 @@
-package com.dmb.contributorslist
+package com.dmb.contributorslist.service.repository
 
+import com.dmb.contributorslist.service.model.Project
+import com.dmb.contributorslist.service.repository.ContributorsListService
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,7 +22,8 @@ class ProjectRepository {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private val contributorsListService: ContributorsListService = retrofit.create(ContributorsListService::class.java)
+    private val contributorsListService: ContributorsListService = retrofit.create(
+        ContributorsListService::class.java)
 
     suspend fun getProjectList(userId: String): Response<List<Project>> =
         contributorsListService.getProjectList(userId)
