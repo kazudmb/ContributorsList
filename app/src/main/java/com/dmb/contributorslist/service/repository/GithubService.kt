@@ -9,7 +9,7 @@ import retrofit2.http.Path
 interface GithubService {
 
     //Contributors一覧
-    @GET("users/repos/googlesamples/android-architecture-components/contributors")
+    @GET("repos/googlesamples/android-architecture-components/contributors")
     suspend fun getContributorsList(): Response<List<Contributors>>
 
     //User
