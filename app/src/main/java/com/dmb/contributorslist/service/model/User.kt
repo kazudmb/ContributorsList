@@ -18,7 +18,7 @@ data class User(
     var events_url: String,
     var received_events_url: String,
     var type: String,
-    var site_admin: Int,
+    var site_admin: Boolean,
     var name: String,
     var company: String,
     var blog: String,
