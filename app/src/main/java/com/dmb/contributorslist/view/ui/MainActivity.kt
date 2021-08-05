@@ -3,7 +3,7 @@ package com.dmb.contributorslist.view.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dmb.contributorslist.R
-import com.dmb.contributorslist.service.model.Project
+import com.dmb.contributorslist.service.model.Contributors
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,16 +12,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            val fragment = ProjectListFragment() //一覧のFragment
+            val fragment = ContributorsListFragment() //一覧のFragment
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment_container, fragment, TAG_OF_PROJECT_LIST_FRAGMENT)
+                .add(R.id.fragment_container, fragment, TAG_OF_CONTRIBUTORS_LIST_FRAGMENT)
                 .commit()
         }
     }
 
-    fun show(project: Project) {
-        val projectFragment = ProjectFragment.forProject(project.name) //詳細のFragment
+    fun show(contributors: Contributors) {
+        val projectFragment = UserFragment.forUser(contributors.login) //詳細のFragment
         supportFragmentManager
             .beginTransaction()
             .addToBackStack("project")

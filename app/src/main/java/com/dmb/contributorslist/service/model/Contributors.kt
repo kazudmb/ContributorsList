@@ -1,6 +1,6 @@
 package com.dmb.contributorslist.service.model
 
-data class User(
+data class Contributors(
     val login: String,
     var id: Long,
     var node_id: String,
@@ -18,19 +18,6 @@ data class User(
     var events_url: String,
     var received_events_url: String,
     var type: String,
-    var site_admin: Int,
-    var name: String,
-    var company: String,
-    var blog: String,
-    var location: String,
-    var email: String,
-    var hireable: String,
-    var bio: String,
-    var twitter_username: String,
-    var public_repos: String,
-    var public_gists: String,
-    var followers: String,
-    var following: String,
-    var created_at: String,
-    var updated_at: String
+    var site_admin: Boolean,
+    var contributions: Int
 )
