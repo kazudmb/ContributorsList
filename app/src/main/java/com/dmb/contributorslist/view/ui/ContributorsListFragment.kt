@@ -37,7 +37,7 @@ class ContributorsListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_contributors_list, container, false) //dataBinding
         binding.apply {
-            projectList.adapter = projectAdapter
+            contributorsList.adapter = projectAdapter
             isLoading = true
         }
         return binding.root

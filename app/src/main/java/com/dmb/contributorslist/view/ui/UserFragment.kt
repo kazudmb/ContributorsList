@@ -48,7 +48,7 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            projectViewModel = viewModel
+            userViewModel = viewModel
             isLoading = true
         }
 

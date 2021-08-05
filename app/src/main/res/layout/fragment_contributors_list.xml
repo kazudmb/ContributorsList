@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="@string/loading_projects"
+            android:text="@string/loading_contributors"
             android:textAlignment="center"
             app:visibleGone="@{isLoading}"/>
         <LinearLayout
@@ -30,14 +30,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textSize="@dimen/project_header1"
-                android:text="@string/github_projects"
+                android:text="@string/contributors_list"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:textAlignment="center"/>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/project_list"
-                android:contentDescription="@string/project_list"
+                android:id="@+id/contributors_list"
+                android:contentDescription="@string/contributors_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="LinearLayoutManager"

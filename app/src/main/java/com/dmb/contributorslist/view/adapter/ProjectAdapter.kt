@@ -56,7 +56,7 @@ class ProjectAdapter(private val contributorsClickCallback: ContributorsClickCal
     }
 
     override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
-        holder.binding.project = contributorsList?.get(position)
+        holder.binding.contributors = contributorsList?.get(position)
         holder.binding.executePendingBindings()
     }
 

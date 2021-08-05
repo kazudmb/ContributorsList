@@ -3,14 +3,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="project" type="com.dmb.contributorslist.service.model.Contributors"/>
+        <variable name="contributors" type="com.dmb.contributorslist.service.model.Contributors"/>
         <variable name="callback" type="com.dmb.contributorslist.view.callback.ContributorsClickCallback"/>
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:onClick="@{() ->  callback.onClick(project)}"
+        android:onClick="@{() ->  callback.onClick(contributors)}"
         android:layout_marginStart="@dimen/item_horizontal_margin"
         android:layout_marginEnd="@dimen/item_horizontal_margin"
         app:cardUseCompatPadding="true">
@@ -22,27 +22,13 @@
             android:padding="5dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/project_name"
+                android:contentDescription="@string/description_contributors"
                 android:textStyle="bold"
                 android:textSize="@dimen/project_text"
-                android:text="@{project.login}"/>
-<!--            <TextView-->
-<!--                android:id="@+id/languages"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:contentDescription="@string/project_language"-->
-<!--                android:textSize="@dimen/project_text"-->
-<!--                android:text="@{String.format(@string/languages, project.language)}"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/project_watchers"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:contentDescription="@string/project_watchers"-->
-<!--                android:textSize="@dimen/project_text"-->
-<!--                android:text="@{String.format(@string/watchers, project.watchers)}"/>-->
+                android:text="@{contributors.login}"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>
