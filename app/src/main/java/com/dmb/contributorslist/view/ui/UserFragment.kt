@@ -52,10 +52,10 @@ class UserFragment : Fragment() {
             isLoading = true
         }
 
-        viewModel.userLiveData.observe(viewLifecycleOwner, Observer { project ->
-            project?.let {
+        viewModel.userLiveData.observe(viewLifecycleOwner, Observer { user ->
+            user?.let {
                 binding.isLoading = false
-                viewModel.setProject(it)
+                viewModel.setUser(it)
             }
         })
     }

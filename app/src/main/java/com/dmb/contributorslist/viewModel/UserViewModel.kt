@@ -29,12 +29,12 @@ class UserViewModel(
                 userLiveData.postValue(response.body())
             }
         } catch (e: Exception) {
-            Log.e("loadProject:Failed", e.stackTrace.toString())
+            Log.e("loadUser:Failed", e.stackTrace.toString())
         }
     }
 
 
-    fun setProject(user: User) {
+    fun setUser(user: User) {
         this.user.set(user)
     }
 

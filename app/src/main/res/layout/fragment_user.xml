@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_name"
                 android:textStyle="bold"
-                android:textSize="@dimen/project_header1"
+                android:textSize="@dimen/header1"
                 android:text="@{userViewModel.user.name}"
                 android:textAlignment="center"
                 android:paddingBottom="5dp"/>
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_bio"
-                android:textSize="@dimen/project_header2"
+                android:textSize="@dimen/header2"
                 android:text="@{userViewModel.user.bio}"/>
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_company"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/languages, userViewModel.user.company)}"/>
 
             <TextView
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_location"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/location, userViewModel.user.location)}"/>
 
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_twitter"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/twitter_username, userViewModel.user.twitter_username)}"/>
 
             <TextView
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_followers"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/followers, userViewModel.user.followers)}"/>
 
             <TextView
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_following"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/following, userViewModel.user.following)}"/>
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_created_at"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/created_at, userViewModel.user.created_at)}"/>
 
             <TextView
@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_updated_at"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{String.format(@string/updated_at, userViewModel.user.updated_at)}"/>
 
         </LinearLayout>

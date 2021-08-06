@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dmb.contributorslist.R
 import com.dmb.contributorslist.databinding.FragmentContributorsListBinding
 import com.dmb.contributorslist.service.model.Contributors
-import com.dmb.contributorslist.view.adapter.ProjectAdapter
+import com.dmb.contributorslist.view.adapter.ContributorsAdapter
 import com.dmb.contributorslist.view.callback.ContributorsClickCallback
 import com.dmb.contributorslist.viewModel.ContributorsListViewModel
 
@@ -25,7 +25,7 @@ class ContributorsListFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentContributorsListBinding
-    private val projectAdapter: ProjectAdapter = ProjectAdapter(object : ContributorsClickCallback {
+    private val contributorsAdapter: ContributorsAdapter = ContributorsAdapter(object : ContributorsClickCallback {
         override fun onClick(contributors: Contributors) {
             if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED) && activity is MainActivity) {
                 (activity as MainActivity).show(contributors)
@@ -37,7 +37,7 @@ class ContributorsListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_contributors_list, container, false) //dataBinding
         binding.apply {
-            contributorsList.adapter = projectAdapter
+            contributorsList.adapter = contributorsAdapter
             isLoading = true
         }
         return binding.root
@@ -45,10 +45,10 @@ class ContributorsListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.contributorsListLiveData.observe(viewLifecycleOwner, Observer { projects ->
-            projects?.let {
+        viewModel.contributorsListLiveData.observe(viewLifecycleOwner, Observer { contributors ->
+            contributors?.let {
                 binding.isLoading = false
-                projectAdapter.setProjectList(it)
+                contributorsAdapter.setContributorsList(it)
             }
         })
     }

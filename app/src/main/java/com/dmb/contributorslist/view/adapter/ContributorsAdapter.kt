@@ -10,12 +10,12 @@ import com.dmb.contributorslist.databinding.ContributorsListItemBinding
 import com.dmb.contributorslist.service.model.Contributors
 import com.dmb.contributorslist.view.callback.ContributorsClickCallback
 
-class ProjectAdapter(private val contributorsClickCallback: ContributorsClickCallback?) :
-    RecyclerView.Adapter<ProjectAdapter.ProjectViewHolder>() {
+class ContributorsAdapter(private val contributorsClickCallback: ContributorsClickCallback?) :
+    RecyclerView.Adapter<ContributorsAdapter.contributorsViewHolder>() {
 
     private var contributorsList: List<Contributors>? = null
 
-    fun setProjectList(contributorsList: List<Contributors>) {
+    fun setContributorsList(contributorsList: List<Contributors>) {
 
         if (this.contributorsList == null) {
             this.contributorsList = contributorsList
@@ -23,7 +23,7 @@ class ProjectAdapter(private val contributorsClickCallback: ContributorsClickCal
         } else {
             val result = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
                 override fun getOldListSize(): Int {
-                    return requireNotNull(this@ProjectAdapter.contributorsList).size
+                    return requireNotNull(this@ContributorsAdapter.contributorsList).size
                 }
 
                 override fun getNewListSize(): Int {
@@ -31,14 +31,14 @@ class ProjectAdapter(private val contributorsClickCallback: ContributorsClickCal
                 }
 
                 override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                    val oldList = this@ProjectAdapter.contributorsList
+                    val oldList = this@ContributorsAdapter.contributorsList
                     return oldList?.get(oldItemPosition)?.id == contributorsList[newItemPosition].id
                 }
 
                 override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                    val project = contributorsList[newItemPosition]
+                    val contributors = contributorsList[newItemPosition]
                     val old = contributorsList[oldItemPosition]
-                    return project.id == old.id && project.gists_url == old.gists_url
+                    return contributors.id == old.id
                 }
             })
             this.contributorsList = contributorsList
@@ -46,16 +46,16 @@ class ProjectAdapter(private val contributorsClickCallback: ContributorsClickCal
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewtype: Int): ProjectViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewtype: Int): contributorsViewHolder {
         val binding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.contributors_list_item, parent,
             false) as ContributorsListItemBinding
         binding.callback = contributorsClickCallback
-        return ProjectViewHolder(binding)
+        return contributorsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: contributorsViewHolder, position: Int) {
         holder.binding.contributors = contributorsList?.get(position)
         holder.binding.executePendingBindings()
     }
@@ -64,5 +64,5 @@ class ProjectAdapter(private val contributorsClickCallback: ContributorsClickCal
         return contributorsList?.size ?: 0
     }
 
-    open class ProjectViewHolder(val binding: ContributorsListItemBinding) : RecyclerView.ViewHolder(binding.root)
+    open class contributorsViewHolder(val binding: ContributorsListItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

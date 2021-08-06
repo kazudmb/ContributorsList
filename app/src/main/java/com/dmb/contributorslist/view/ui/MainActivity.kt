@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun show(contributors: Contributors) {
-        val projectFragment = UserFragment.forUser(contributors.login) //詳細のFragment
+        val userFragment = UserFragment.forUser(contributors.login) //詳細のFragment
         supportFragmentManager
             .beginTransaction()
-            .addToBackStack("project")
-            .replace(R.id.fragment_container, projectFragment, null)
+            .addToBackStack("user")
+            .replace(R.id.fragment_container, userFragment, null)
             .commit()
     }
 }

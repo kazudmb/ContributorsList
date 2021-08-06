@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_contributors"
                 android:textStyle="bold"
-                android:textSize="@dimen/project_text"
+                android:textSize="@dimen/text"
                 android:text="@{contributors.login}"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
